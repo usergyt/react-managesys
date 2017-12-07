@@ -1,8 +1,6 @@
 # react-managesys
 
-克隆代码
-git clone https://github.com/usergyt/react-managesys.git
-
+ 
 安装依赖
 npm i 
 

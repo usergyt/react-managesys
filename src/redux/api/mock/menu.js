@@ -9,7 +9,7 @@ module.exports = {
           {
             name: '用户列表',
             key: 305,
-            url: '/tabletest'
+            url: '/userManage'
           }
            
         ]

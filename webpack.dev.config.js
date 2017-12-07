@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 
@@ -19,13 +20,30 @@ const devConfig = {
     module: {
         rules: [{
             test: /\.(less|css)$/,
-             use: ["style-loader", "css-loader", "postcss-loader"]
+            use: ["style-loader", "css-loader", "postcss-loader"]
         }]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            MOCK: false 
+        })
+    ],
     devServer: {
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         host: '0.0.0.0',
+        hot: true,
+        inline: true,
+        progress: true,
+        port: 3000,
+        proxy: {
+            '/operation-platform/*': {
+                target: 'http://121.40.68.47:8212/',
+                changeOrigin: true,
+                secure: false
+            }
+        }
+
     }
 };
 

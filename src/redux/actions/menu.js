@@ -15,8 +15,7 @@ export function updateNavPath(path, key) {
 }
 
 export function getAllMenu() {
-  console.log("33333")
-   return {
+     return {
     types: [GET_ALL_MENU, GET_ALL_MENU_SUCCESS, UPDATE_NAVPATH],
     promise: client =>api.get('/menu')
   }

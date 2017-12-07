@@ -1,0 +1,33 @@
+
+
+
+.#{$cls-prefix}-list{
+  margin-bottom: 15px; 
+ 
+  li{
+
+    position: relative;
+    display: block;
+    background-color: $list-bg-color; 
+    border-bottom: $list-border dashed $list-border-color;
+    border-width: 1px 0;
+    border-color: $list-border-color;
+    a{
+      display: block;
+     height: 44px;
+    line-height: 44px;
+    color:$list-text-color;
+    }
+    .#{$cls-prefix}-list-right-icon{
+    
+      @include setArrow(right, 8px, $list-right-icon-color, 2px);
+      position: absolute;
+      right: 10px;
+      top:18px;
+    }
+  }
+
+}
+ .#{$cls-prefix}-list-icon{
+padding-right: 30px
+  }

@@ -1,0 +1,89 @@
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden
+}
+
+[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    @include transition(.28s ease);
+    @include user-select(none);
+}
+
+[type="radio"] + label:before, [type="radio"] + label:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 4px;
+    width: 16px;
+    height: 16px;
+    z-index: 0;
+    @include transition(.28s ease);
+}
+
+[type="radio"]:not(:checked) + label:before {
+    border-radius: 50%;
+    border: $check-border solid $check-border-color;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    border-radius: 50%;
+    border: $check-border solid $check-border-color;
+    z-index: -1;
+    @include scale(0);
+}
+
+[type="radio"]:checked + label:before {
+    border-radius: 50%;
+    border: $check-border solid transparent
+}
+
+[type="radio"]:checked + label:after {
+    border-radius: 50%;
+    border: $check-border solid $check-bg-color;
+    background-color: $check-bg-color;
+    z-index: 0;
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    transform: scale(1.02)
+}
+
+[type="radio"].with-gap:checked + label:before {
+    border-radius: 50%;
+    border: $check-border  solid $check-bg-color;
+}
+
+[type="radio"].with-gap:checked + label:after {
+    border-radius: 50%;
+    border: $check-border solid $check-bg-color;
+    background-color: $check-bg-color;
+    z-index: 0;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5)
+}
+
+[type="radio"]:disabled:not(:checked) + label:before, [type="radio"]:disabled:checked + label:before {
+    background-color: transparent;
+    border-color: $check-disable-border-color
+}
+
+[type="radio"]:disabled + label {
+    color: $check-disable-border-color
+}
+
+[type="radio"]:disabled:not(:checked) + label:hover:before {
+    border-color: $check-disable-border-color
+}

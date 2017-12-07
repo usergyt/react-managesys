@@ -5,7 +5,7 @@ import getRouter from 'router/index';
 export default class App extends Component {
     render() {
         return (
-            <div  >
+            <div   className="content">
                  {getRouter()}
             </div>
         )

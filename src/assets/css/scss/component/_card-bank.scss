@@ -1,0 +1,108 @@
+.#{$cls-prefix}-card-bank {
+  background: -webkit-linear-gradient(left, $card-bank-bg-left-color, $card-bank-bg-middle-color, $card-bank-bg-left-color);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, $card-bank-bg-left-color, $card-bank-bg-middle-color, $card-bank-bg-left-color);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, $card-bank-bg-left-color, $card-bank-bg-middle-color, $card-bank-bg-left-color);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(right, $card-bank-bg-left-color, $card-bank-bg-middle-color, $card-bank-bg-left-color);
+  /* 标准的语法（必须放在最后） */
+  border-radius: $card-bank-border-radius;
+  padding: 15px 25px;
+  margin-bottom: 15px;
+  position: relative;
+  @include clearfix .fail {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: $card-bank-border-radius;
+    .fail-text {
+      color: #ffa559;
+      float: right;
+      text-decoration: underline;
+      margin: 20px 20px;
+      display: inline-block;
+    }
+  }
+}
+
+.#{$cls-prefix}-card-bank-logo {
+  .#{$cls-prefix}-bank-container {
+    padding-left: 20px;
+    float: left;
+    color: $card-bank-text-color;
+    line-height: 25px;
+  }
+  .#{$cls-prefix}-bank-name {
+    font-size: 18px;
+  }
+  .#{$cls-prefix}-bank-type {
+    font-size: 12px;
+  }
+}
+
+.#{$cls-prefix}-bank-id {
+  padding: 25px 0;
+  // font-size: 22px;
+  color: $card-bank-text-color;
+  float: right;
+  line-height: 40px;
+  span {
+    letter-spacing: 3px;
+    vertical-align: middle;
+    padding-top: 4px;
+    display: inline-block;
+    font-size: 25px;
+  }
+}
+
+.#{$cls-prefix}-bank-user {
+  color: $card-bank-text-color;
+  font-size: 14px;
+}
+
+.#{$cls-prefix}-bank-user-time {
+  font-size: 12px;
+}
+
+.#{$cls-prefix}-bank-user-status {
+  float: right;
+}
+
+.card-fail {
+  background: #c2c5ce;
+}
+
+//icon
+@mixin bank-icon-size() {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  float: left;
+}
+
+.#{$cls-prefix}-bank-icon-zhaoshang {
+  background-position: 1px 0px;
+  @include bank-icon-size;
+}
+
+.#{$cls-prefix}-bank-icon-zhongguo {
+  background-position: 1px -67px;
+  @include bank-icon-size;
+}
+
+//手机端
+@media screen and (max-width: 480px) {
+  .rsjf-bank-id {
+    padding: 15px 0;
+    color: #fff;
+    float: right;
+    line-height: 40px;
+    span {
+      font-size: 18px;
+    }
+  }
+}

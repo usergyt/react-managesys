@@ -1,0 +1,95 @@
+// class name
+$tablePrefix: #{$cls-prefix}-table;
+// 
+$table-row-height: 37px;
+$table-font-size: 14px;
+$table-border-color: #dde3eb;
+$table-td-padding: 8px;
+$table-border: 1px solid $table-border-color;
+$table-tr-bgc: #f3f7fc;
+$table-td-border: 1px solid $table-border-color;
+$table-hover-color: $table-tr-bgc;
+.table-td-common {
+    box-sizing: border-box;
+    padding: $table-td-padding;
+    height: $table-row-height;
+}
+
+// .visible-sm.#{$tablePrefix} {
+//     display: inline-block !important;
+// }
+.#{$tablePrefix} {
+    width: 100%;
+    font-size: $table-font-size;
+    border: $table-border;
+    border-collapse: collapse;
+    &-heade {
+        background-color: #f2f4f8;
+        > tr {
+            border-bottom: $table-border;
+        }
+    }
+    &-body-nodata {
+        border: $table-border;
+        border-top: none;
+        text-align: center;
+        height: 294px;
+        .rsjf-icon-nodata {
+            display: inline-block;
+            width: 142px;
+            height: 98px;
+            margin-top: 78px;
+        }
+    }
+    &-tr {
+        border-top: $table-border;
+    }
+    &-td {
+        @extend .table-td-common;
+    }
+    &-th {
+        @extend .table-td-common;
+        color: #73808a;
+        height: 54px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+    
+    @at-root #{&}-center {
+        .#{$tablePrefix}-th,
+        .#{$tablePrefix}-td {
+            text-align: center;
+        }
+    }
+    @at-root #{&}-even {
+        .#{$tablePrefix}-tr:nth-child(odd) {
+            background-color: $table-tr-bgc;
+        }
+    }
+    @at-root #{&}-odd {
+        .#{$tablePrefix}-tr:nth-child(even) {
+            background-color: $table-tr-bgc;
+        }
+    }
+    @at-root #{&}-bordered {
+        // td边框
+        .#{$tablePrefix}-td,
+        .#{$tablePrefix}-th {
+            border-right: $table-td-border;
+        }
+    }
+    @at-root #{&}-hover {
+        // 鼠标指向
+        .#{$tablePrefix}-tr:hover {
+            // background-color: $table-hover-color;
+        }
+    }
+    @at-root #{&}-condensed {
+        // 缩短
+        .#{tablePrefix}-td,
+        .#{tablePrefix}-th {
+            padding: 0;
+            height: 21px;
+        }
+    }
+}

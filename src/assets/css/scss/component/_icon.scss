@@ -1,0 +1,135 @@
+.#{$cls-prefix}-icon {
+    background: url(../images/icon.png) no-repeat;
+    background-size: 1000px 3369px;
+}
+
+.#{$cls-prefix}-bank-icon {
+    background: url(../images/banklogo.png) no-repeat;
+    background-size: 96px 999px;
+}
+
+;
+.rsjf-icon-date {
+    background-position: -1px -581px;
+    width: 20px;
+    position: absolute;
+    height: 26px;
+    top: 8px;
+    right: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.rsjf-icon-input-close {
+    background-position: 1px -982px;
+    width: 25px;
+    position: absolute;
+    height: 25px;
+    top: 0px;
+    right: 0px;
+    display: inline-block;
+    margin-bottom: 10px;
+    &:hover,
+    &:active {
+        cursor: pointer;
+        background-position: -85px -982px;
+    }
+}
+
+.rsjf-icon-input-close-eyes {
+    background-position: 1px -1024px;
+    width: 25px;
+    position: absolute;
+    height: 25px;
+    top: 0px;
+    right: 0px;
+    display: inline-block;
+    margin-bottom: 10px;
+    &.active {
+        cursor: pointer;
+        background-position: -85px -1024px;
+    }
+}
+
+.rjsf-icon-button-download {
+    background: url(../images/icon.png) 0 -552px no-repeat !important;
+    background-size: 1000px 3369px !important;
+}
+
+.rsjf-icon-close {
+    background: url(../images/icon.png) 0 -677px no-repeat !important;
+    background-size: 1000px 3369px !important;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+// 充值
+.rsjf-icon-recharge {
+    background-position: 0 -2554px;
+}
+
+// 转账
+.rsjf-icon-transfer {
+    background-position: 0 -2702px;
+}
+
+// 提现
+.rsjf-icon-deposit {
+    background-position: 0 -2850px;
+}
+
+// 代收
+.rsjf-icon-collecting {
+    background-position: 0 -2998px;
+}
+
+// 代付
+.rsjf-icon-another {
+    background-position: 0 -3146px;
+}
+
+.rsjf-userSuccess-icon {
+    background-position: 1px -1550px;
+    width: 214px;
+    height: 220px;
+    display: inline-block;
+}
+
+.rsjf-kaihu-icon {
+    display: inline-block;
+    width: 17px;
+    height: 22px;
+    background-position: -370px -440px;
+}
+
+.rsjf-baimingdan-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: -370px -541px;
+}
+//通联
+.rsjf-icon-tonglian{
+      background-position: 0px -923px;
+    width: 230px;
+    height: 16px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+    /* text-align: center; */
+}
+.rsjf-icon-meg{
+      background-position: 0px -449px;
+    width: 25px;
+    height: 26px;
+    display: inline-block;
+    float: left;
+}
+
+.rsjf-icon-nodata {
+    background-position: 0 -2178px;
+}
+

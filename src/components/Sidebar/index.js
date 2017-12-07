@@ -66,7 +66,7 @@ class Sidebar extends React.Component {
     this.setState({
       activeKey: item.key
     })
-    this.props.updateNavPath(item.keyPath, item.key)
+     this.props.updateNavPath(item.keyPath, item.key)
   }
 
   render () {

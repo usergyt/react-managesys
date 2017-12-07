@@ -24,17 +24,14 @@ export function fetchProfile() {
     }
 }
 
-export function login(user, password) {
+export function login(name, password) {
+ 
   return {
-      type: 'LOGIN',
-      payload: {
-        promise: api.put('/login', {
-          data: {
-            user: user,
-            password: password
-          }
-        })
-      }
+    types: [LOGIN_PENDING, LOGIN_SUCCESS, LOGIN_ERROR],
+    promise: client =>api.put('/login', {data: {
+      name: name,
+      password: password
+    }})
   }
 }
 

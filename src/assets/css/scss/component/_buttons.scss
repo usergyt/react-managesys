@@ -1,0 +1,313 @@
+//@mixin
+//自定义变量
+//颜色
+$rsjf-primary-color: #35baff !default;
+$color-white: white !default;
+$btn-default-color: #333 !default; //按钮字体
+$btn-default-bg: #fff !default //按钮背景颜色
+$btn-default-border: #ccc !default; //border 颜色
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: darken($btn-primary-bg, 5%) !default;
+$btn-success-color: #fff !default;
+$btn-success-bg: $brand-success !default;
+$btn-success-border: darken($btn-success-bg, 5%) !default;
+//字号
+$btn-font-weight: normal !default;
+//边距与填充
+$padding-base-vertical: 6px !default;
+$padding-base-horizontal: 12px !default;
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 16px !default;
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 10px !default;
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 5px !default;
+//圆角
+$btn-border-radius-base: $border-radius-base !default;
+$btn-border-radius-large: $border-radius-large !default;
+$btn-border-radius-small: $border-radius-small !default;
+@mixin user-select($select) {
+    -webkit-user-select: $select;
+    -moz-user-select: $select;
+    -ms-user-select: $select; // IE10+
+    user-select: $select;
+}
+
+@mixin tab-focus() {
+    // WebKit-specific. Other browsers will keep their default outline style.
+    // (Initially tried to also force default via `outline: initial`,
+    // but that seems to erroneously remove the outline in Firefox altogether.)
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+    box-shadow: $shadow;
+}
+
+//btn专用
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+
+@mixin button-variant($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+    &:focus,
+    &.focus {
+        color: $color;
+        background-color: darken($background, 10%);
+        border-color: darken($border, 25%);
+    }
+    &:hover {
+        color: $color;
+        background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
+        cursor: pointer;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: $color;
+        background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $color;
+            background-color: darken($background, 17%);
+            border-color: darken($border, 25%);
+            cursor: pointer;
+        }
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: $background;
+            border-color: $border;
+            cursor: pointer;
+        }
+    }
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
+}
+
+//反色按钮的变色函数
+@mixin button-variant-conflick($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+    &:focus,
+    &.focus {
+        color: $background;
+        background-color: darken($color, 10%);
+        border-color: darken($border, 25%);
+        cursor: pointer;
+    }
+    &:hover {
+        color: $background;
+        background-color: darken($color, 10%);
+        border-color: darken($border, 12%);
+        cursor: pointer;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: $background;
+        background-color: darken($color, 10%);
+        border-color: darken($border, 12%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $background;
+            background-color: darken($color, 17%);
+            border-color: darken($border, 25%);
+            cursor: pointer;
+        }
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: $background;
+            border-color: $border;
+        }
+    }
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+
+//
+// Buttons
+// --------------------------------------------------
+// Base styles
+// --------------------------------------------------
+.#{$cls-prefix}-btn {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+    @include user-select(none);
+    &,
+    &:active,
+    &.active {
+            outline:none;
+        &:focus,
+        &.focus {
+            @include tab-focus;
+                outline:none;
+        }
+    }
+    &:hover,
+    &:focus,
+    &.focus {
+        color: $btn-default-color;
+        text-decoration: none;
+    }
+    &:active,
+    &.active {
+        outline:none;
+        background-image: none;
+        @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: $cursor-disabled;
+        @include opacity(.65);
+        @include box-shadow(none);
+    }
+    // [converter] extracted a& to a.btn
+}
+
+a.#{$cls-prefix}-btn {
+    &.disabled,
+    fieldset[disabled] & {
+        pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+.#{$cls-prefix}-btn-cancel {
+    @include button-variant-conflick($rsjf-primary-color, $btn-primary-color, $rsjf-primary-color);
+}
+
+.#{$cls-prefix}-btn-default {
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
+.#{$cls-prefix}-btn-primary {
+    @include button-variant($btn-primary-color, $rsjf-primary-color, $rsjf-primary-color);
+}
+
+// Success appears as green
+.#{$cls-prefix}-btn-success {
+    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+
+// Button Sizes
+// --------------------------------------------------
+.#{$cls-prefix}-btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+}
+
+.#{$cls-prefix}-btn-sm {
+    // line-height: ensure proper height of button next to small input
+    @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+
+.#{$cls-prefix}-btn-xs {
+    @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+
+// Block button
+// --------------------------------------------------
+.#{$cls-prefix}-btn-block {
+    display: block;
+    width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.#{$cls-prefix}-btn-block + .#{$cls-prefix}-btn-block {
+    margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    &.#{$cls-prefix}-btn-block {
+        width: 100%;
+    }
+}
+
+//带icon的按钮
+.#{$cls-prefix}-btn-icon {
+    .btn-icon {
+        background: url(../images/icon.png) no-repeat;
+        background-size: 1000px 2474px;
+        background-position: 0 -509px;
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        float: left;
+        margin-right: 5px;
+        margin-top: 2px;
+    }
+}
+
+.#{$cls-prefix}-btn-icon-download {
+    background-position: 0 -509px;
+}
+
+.rsjf-btn-icon-container {
+    position: relative;
+    margin-left: 20px;
+    .btn-icon {
+        position: absolute;
+        left: 0;
+        margin-left: -18px
+    }
+}

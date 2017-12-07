@@ -1,0 +1,49 @@
+/*page*/
+
+
+
+
+.#{$cls-prefix}-pagination li {
+    float: left;
+    line-height: 24px;
+    color: #6c6c6e;
+    cursor: default;
+    @include user-select(none);
+    input{
+        width: 35px;
+        border: 1px solid $rsjf-primary-color;
+        padding: 2px 4px;
+        margin: 0 4px;
+        height: 31px;
+    }
+    a{
+        border: 1px solid $rsjf-primary-color;
+        margin: 0 5px;
+        color: $pagingColor;
+       border-radius: 4px;
+        display:inline-block;
+        width:25px;
+        text-align:center;
+    }
+    & .disabled{
+        color:#ccc;
+    }
+    & .active{
+        color:#35baff;
+    }
+}
+
+.#{$cls-prefix}-pagination .active a,
+.#{$cls-prefix}-pagination .active a:hover,
+.#{$cls-prefix}-pagination .active a:focus,
+.#{$cls-prefix}-pagination li a:hover {
+    color: $fontColor;
+    background: $rsjf-primary-color;
+    border-color: $rsjf-primary-color;
+}
+.#{$cls-prefix}-page-select{
+    padding: 5px 2px;
+    margin: 0 4px;
+    border: 1px solid #dddddd;
+    color: #393939;
+}

@@ -7,8 +7,9 @@ var mockAxios = axios.create();
 var mock = new MockAdapter(mockAxios);
 
 mock.onPut('/login').reply(config => {
+  console.log("接口",config)
   let postData = JSON.parse(config.data).data;
-  if (postData.user === 'admin' && postData.password === '123456') {
+  if (postData.name === 'admin' && postData.password === '123456') {
     return [200, require('./mock/user') ];
   } else {
     return [500, {message: "Incorrect user or password"} ];

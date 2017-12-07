@@ -1,0 +1,218 @@
+//
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+
+.#{$cls-prefix}-dialog-confirm-bg{
+    background-color:$rsjf-dialog-confirm-bg ;
+}
+.#{$cls-prefix}-modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.#{$cls-prefix}-modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  -webkit-overflow-scrolling: touch;
+
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+  // When fading in the modal, animate it to slide down
+  &.fade .#{$cls-prefix}-modal-dialog {
+    @include translate(0, -25%);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .#{$cls-prefix}-modal-dialog { @include translate(0, 0) }
+}
+.#{$cls-prefix}-modal-open .#{$cls-prefix}-modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Shell div to position the modal with bottom padding
+.#{$cls-prefix}-modal-dialog {
+    background: #fff;
+    border-radius:10px;
+    position: absolute; 
+    top: 40%;  
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 99999;
+}
+
+// Actual modal
+.#{$cls-prefix}-modal-content {
+  width:350px;
+  position: relative;
+  background-color: $modal-content-bg;
+  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  border: 1px solid $modal-content-border-color;
+  border-radius: $border-radius-large;
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  background-clip: padding-box;
+  // Remove focus outline from opened modal
+  outline: 0;
+}
+@media(max-width:350px){
+    .#{$cls-prefix}-modal-dialog .#{$cls-prefix}-modal-content{
+        width:270px;
+    } 
+}
+
+// Modal background
+.#{$cls-prefix}-modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-background;
+  background-color: $modal-backdrop-bg;
+  // Fade for backdrop
+  &.fade { @include opacity(0); }
+  &.in { @include opacity($modal-backdrop-opacity); }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.#{$cls-prefix}-modal-header {
+  padding: $modal-title-padding;
+  border-bottom: 1px dashed #83868f;
+  @include clearfix;
+}
+// Title text within header
+.#{$cls-prefix}-modal-title {
+  margin: 0;
+  line-height: $modal-title-line-height;
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.#{$cls-prefix}-modal-body {
+  position: relative;
+  padding: $modal-inner-padding;
+}
+
+// Footer (for actions)
+.#{$cls-prefix}-modal-footer {
+  @include clearfix; // clear it in case folks use .pull-* classes on buttons
+  height:70px;
+  position:relative; 
+  &>div{
+      height:100%;
+  }
+  & .rsjf-btn{
+       padding:8px 50px;
+        position: absolute; 
+        top: 50%;  
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        z-index: 99999;
+  }
+  // Properly space out buttons
+  .#{$cls-prefix}-btn + .#{$cls-prefix}-btn {
+    margin-left: 5px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+  // but override that for button groups
+  .#{$cls-prefix}-btn-group .#{$cls-prefix}-btn + .#{$cls-prefix}-btn {
+    margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .#{$cls-prefix}-btn-block + .#{$cls-prefix}-btn-block {
+    margin-left: 0;
+  }
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+.#{$cls-prefix}-modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Scale up the modal
+@media (min-width: $screen-sm-min) {
+  // Automatically set modal's width for larger viewports
+  .#{$cls-prefix}-modal-dialog {
+    margin: 30px auto;
+  }
+  .#{$cls-prefix}-modal-content {
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+  }
+
+  // Modal sizes
+  .#{$cls-prefix}-modal-sm { width: $modal-sm; }
+}
+
+@media (min-width: $screen-md-min) {
+  .#{$cls-prefix}-modal-lg { width: $modal-lg; }
+}
+//字体的颜色
+.#{$cls-prefix}-btn-primary-color{
+    color:$rsjf-primary-color;
+}
+//loading图
+.#{$cls-prefix}-loading{
+   width:$rsjf-loading-height;
+   height:$rsjf-loading-height;
+}
+.#{$cls-prefix}-loading-height{
+    height:$rsjf-loading-height;
+}
+//水平居中
+.#{$cls-prefix}-horizontal-center{
+    position: absolute; 
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0%);
+    -ms-transform: translate(-50%,0%);
+    -o-transform: translate(-50%,0%);
+    transform: translate(-50%,0%);
+    z-index: 99999;
+}
+//close
+.#{$cls-prefix}-modal-close{
+    background: url(../images/icon.png) no-repeat;
+    background-size: 1000px 2474px;
+    background-position: 0 -728px;
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:31px;
+    height:31px;
+    z-index:11111;
+    &:hover{
+        background-position:-85px -728px;
+    }
+}
+.padding-h-30{
+    padding:20px 30px 10px;
+}
+.text-center{
+    text-align: center;
+}

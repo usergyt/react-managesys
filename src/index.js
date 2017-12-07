@@ -5,8 +5,10 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 import {BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
-import 'antd/dist/antd.css';
-
+ import './assets/css/rsjf.css';
+if (MOCK) {
+    require('mock/mock');
+}
 renderWithHotReload(App);
 
 if (module.hot) {

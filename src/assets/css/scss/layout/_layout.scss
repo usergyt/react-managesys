@@ -1,0 +1,653 @@
+html body{
+    margin:0 !important;
+    width:100%;
+    height:100%;
+    background-color: #dfe5ee;
+}
+.position-relative{
+    position: relative;
+}
+.fl-left{
+    float:left;
+}
+.fl-right{
+    float:right;
+}
+.v-h-center{
+    position: absolute; 
+    top: 50%;  
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 99999;
+}
+.rsjf-input-search-box{
+    position:relative;
+    width:240px;
+    height:35px;
+    margin:23px 0 0 50px;
+    padding:4px 0;
+    color:rgba(255,255,255,0.8);
+    background-color:rgba(225, 225, 225, 0.2) !important;
+    border-radius:5px;
+    & .rsjf-input-search{
+        border:none;
+        outline: none;
+        color:rgba(255,255,255,0.8);
+        width:190px;
+        height:27px;
+        background:rgba(255,255,255,0);
+        padding-left:16px;
+        &:focus+.rsjf-input-search-box-real{
+            border:1px solid  #35baff!important;
+        }
+    }
+    & .rsjf-input-search-box-real{
+        z-index:-1;
+        position:absolute;
+        left:0;top:0;
+        width:240px;height:35px;
+        border:1px solid rgba(255,255,255,0.8);
+        border-radius:3px;
+    }
+    & .rsjf-icon{
+        width:40px;
+        height:25px;
+        display: inline-block;
+        background-position:12px -513px;
+        border-left:1px solid rgba(255,255,255,0.8); 
+        &:hover{
+            background-position:-73px -513px;
+        }
+    }
+}
+.rsjf-wrapper{
+    width:100%;
+    margin:0;
+    padding:0;
+    position:relative;
+    overflow: hidden;
+}
+.rsjf-layout{
+    
+}
+.rsjf-header{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:76px;
+    background-color:green;
+    z-index:10;
+    background:url(../images/bg-topbar.jpg) no-repeat;
+    background-size:cover;
+    .rsjf-header-right{
+        height:100%;
+        background-color:rgba(255,255,255,0.1);
+        color:rgba(255,255,255,0.8);
+        & .border-div{
+            height:34px;
+            margin-top:23px;
+        }
+        & .full-div{
+            height:100%;
+            &:hover .usermenu{
+                display: block;
+            }
+            &:hover {
+                color:#35baff;
+                & .icon2{
+                    background-position:-86px -48px;
+                }
+            }
+        }
+        & .div2{
+            position:relative;
+            border-left:1px solid rgba(255,255,255,0.4);
+            border-right:1px solid rgba(255,255,255,0.4);
+            & .usermenu{
+                display:none;
+                width:100%;
+                height:84px;
+                border-top:5px solid #35baff;
+                position:absolute;
+                bottom:-97px;
+                background-color:white;
+                text-align: center;
+                &>div{
+                    cursor: pointer;
+                    width:100%;height:42px;
+                    color:black;
+                    line-height:42px;
+                    &:hover{
+                        background-color:#f3f6fb;
+                        color:#35baff;
+                    }
+                }
+            }
+        }
+        & .icon1{
+            width:30px;
+            height: 30px;
+            margin:2px 15px 0 20px;
+            display: inline-block;
+            background-position:0 0;
+            &:hover{
+                background-position:-86px 0;
+            }
+        }
+        & .tag{
+            display:inline-block;
+            position:absolute;
+            top:0;
+            right:10px;
+            width:20px;
+            height:20px;
+            line-height: 20px;
+            text-align:center;
+            border-radius: 10px;
+            background-color:red;
+        }
+        & .icon2{
+            width:32px;
+            height: 32px;
+            margin:2px 10px 0 15px;
+            display: inline-block;
+            background-position:0px -48px;
+            &:hover{
+                background-position:-86px -48px;
+            }
+        }
+        & .icon3{
+            width:30px;
+            height: 30px;
+            margin:2px 15px 0 15px;
+            display: inline-block;
+            background-position:0 -95px;
+            &:hover{
+                background-position:-86px -95px;
+            }
+        }
+        .name{
+            display: inline-block;
+            width:60px;
+            overflow: hidden;
+            text-overflow:ellipsis;  
+            line-height: 34px;
+            font-size: 18px;
+        }
+    }
+}
+.rsjf-side-menu{
+    position:fixed;
+    left:0;
+    top:76px;
+    width:200px;
+    height:100%;
+    color:#949bab;
+    background:url(../images/bg-menu.jpg) no-repeat;
+    background-size:cover;
+    .menu1{
+        padding:0 !important;    
+        margin:0 !important;    
+    }
+    .menu1-li{
+        font-size: 15px;
+        line-height:60px;
+        list-style: none;  
+        border-bottom:1px solid #132529;
+        cursor:pointer;
+        @include user-select(none); 
+        & .i1{
+            display: inline-block;
+            width: 24px;
+            height: 20px;
+            vertical-align: middle;
+            margin-left:30px;
+            margin-right: 20px;
+        }
+        & .i2{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-top:10px;
+            margin-left:30px;
+        }
+        & .aron-up{
+            background-position:-370px -170px;
+        }
+        &:hover{
+            color:white !important;
+            & .aron-up{
+               background-position:-370px -210px; 
+            }
+        }
+        &.active{
+            color:white !important;
+            & .aron-up{
+               background-position:-370px -230px; 
+            }
+        }
+        .icon-sh{
+            background-position:0 -172px;
+        }
+        &:hover .icon-sh,&.active .icon-sh{
+            background-position:-200px -172px !important;
+        } 
+        .icon-jy{
+            background-position:0 -210px;
+        } 
+        &:hover .icon-jy,&.active .icon-jy{
+            background-position:-200px -210px !important;
+        } 
+        .icon-zh{
+            background-position:0 -255px;
+        } 
+        &:hover .icon-zh,&.active .icon-zh{
+            background-position:-200px -255px !important;
+        } 
+        .icon-js{
+            background-position:0 -292px;
+        } 
+        &:hover .icon-js,&.active .icon-js{
+            background-position:-200px -292px !important;
+        } 
+        .icon-sg{
+            background-position:0 -334px;
+        } 
+        &:hover .icon-sg,&.active .icon-sg{
+            background-position:-200px -334px !important;
+        }  
+        .icon-zj{
+            background-position:0 -374px;
+        } 
+        &:hover .icon-zj,&.active .icon-zj{
+            background-position:-200px -374px !important;
+        } 
+        .icon-zz{
+            background-position:0px -412px;
+        } 
+        &:hover .icon-zz,&.active .icon-zz{
+            background-position:-200px -412px !important;
+        } 
+        .menu2{
+            font-size:13px;
+            line-height:50px;
+            padding-left:0 !important;
+        } 
+        .menu2-li{
+            position:relative;
+            list-style: none;
+            padding-left:90px;
+            & a{
+                color:#949bab;
+                text-decoration: none;
+                position:relative;
+            }
+            & a:before{
+                content: "";
+                position: absolute;
+                top: 9px;
+                z-index: 9999;
+                display: block;
+                width: 2px;
+                height: 2px;
+                font-size: 0;
+                left: -14px;
+                background-color:rgba(255,255,255,0.5);
+            }
+            &:hover a,&.active a{
+                color:white !important;
+                &:before{
+                     background-color:rgba(255,255,255,0.9);
+                }
+            }
+            &.active{
+                background-color:rgba(0,0,0,0.4);
+            }
+            &.active:before{
+                content:"";
+                width:4px;
+                height:50px;
+                position:absolute;
+                top:0;
+                left:0px;
+                background-color:#fdcd01;
+            }
+        } 
+        
+    } 
+}
+
+.rsjf-content{
+    margin-top:76px;
+    min-height: 500px;
+    padding:30px;
+    margin-left:200px;
+    background-color:#dfe5ee;
+    & .navbar{
+        height:60px;
+        background-color:#ffffff;
+        border-radius: 2px;
+        line-height:60px;
+        font-size: 16px;
+        padding-left:30px;
+        & .back{
+            width:100px;
+            height:100%;
+            background-color:#f3f7fc;
+            float:right;
+            border-left:1px solid #dce2ea;
+            line-height: 60px;
+            font-size: 17px;
+            text-align: center;
+            @include user-select(none);
+            cursor: pointer;
+            & .icon-back{
+                display: inline-block;
+                width:15px;height:20px;
+                background-position:-370px -270px;
+            }
+            &:hover .icon-back{
+                display: inline-block;
+                width:15px;height:20px;
+                background-position:-370px -310px;
+            }
+        }
+    }
+}
+
+.rsjf-footer{
+    color: #58666e;
+    text-align: center !important;
+    padding: 20px 30px;
+    bottom: 0;
+    font-size: 12px;
+    background:#dfe5ee;
+}
+@media(min-width:768px){
+   .rsjf-wrapper .rsjf-footer{
+        margin-left:200px;
+   } 
+}
+@media(max-width:768px){
+    .rsjf-wrapper .rsjf-footer{
+        margin-left:0;
+    } 
+}
+
+
+
+
+
+
+
+
+//手机端样式
+.rsjf-header-m{
+    width:100%;
+    height:70px;
+    background-color:#ffffff;
+    &>.fl-left{
+        height:100%;
+        width:60px;
+        border-right:1px solid #ebebed;
+    }
+    & .icon-menu{
+        display: inline-block;
+        width:32px;
+        height:32px;
+        background-position:-367px -104px;
+    }
+    &>.fl-right{
+        height:34px;
+        margin-top:15px;
+        & .div1{
+            width:40px;
+            height:100%;
+            border-right:1px solid #ebebed;
+            & .icon1{
+                display:inline-block;
+                width:30px;
+                height:30px;
+                background-position:-367px 0;
+            }
+            & .tag{
+                position:absolute;
+                top:0;
+                right:6px;
+                width:20px;
+                height:20px;
+                background:#fb585b;
+                color:white;
+                border-radius: 10px;
+                line-height: 20px;
+                text-align: center;
+            }
+        }
+        & .div2{
+            width:50px;
+            height:100%;
+            & .icon2{
+                margin-left:10px;
+                margin-top:-4px;
+                display:inline-block;
+                width:34px;
+                height:34px;
+                background-position:-369px -47px;
+            }
+        }
+    }
+   
+}
+.rsjf-search-m{
+    width:100%;
+    height:54px;
+    padding:0 15px;
+    background:url(../images/bg-topbar.jpg) no-repeat;
+    overflow: hidden;
+    background-size:cover ;
+    & .rsjf-input-search-box-m{
+        height:32px;
+        margin-top:12px;
+        padding:4px 0;
+        color:rgba(255,255,255,0.8);
+        background-color:rgba(225, 225, 225, 0.3) !important;
+        border:1px solid rgba(255, 255, 255, 0.7) !important;
+        border-radius:3px;
+        & .rsjf-input-search{
+            margin-top:-2px;
+            border:none;
+            outline: none;
+            color:rgba(255,255,255,0.8);
+            width:100%;
+            line-height:26px;
+            background:rgba(255,255,255,0);
+            padding-left:16px;
+        }
+        & .rsjf-icon{
+            float:right;
+            width:40px;
+            height:25px;
+            display: inline-block;
+            margin-top:-2px;
+            background-position:12px -513px;
+            border-left:1px solid rgba(255,255,255,0.8); 
+        }
+    }
+}
+.rsjf-menu-m{
+    width:100%;
+    color:#949bab;
+    background:url(../images/bg_menu750.jpg) no-repeat;
+    background-size:cover;
+    .menu1{
+        padding:0 !important;    
+        margin:0 !important;    
+    }
+    .menu1-li{
+        font-size: 15px;
+        line-height:60px;
+        list-style: none;  
+        border-bottom:1px solid #132529; 
+        cursor:pointer;
+        @include user-select(none); 
+        & .i1{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-left:50px;
+            margin-right: 20px;
+        }
+        & .i2{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-top:25px;
+            margin-right:20px;
+            float:right;
+        }
+        & .aron-up{
+            background-position:-370px -170px;
+        }
+        &.active .aron-up{
+             background-position:-370px -190px !important;
+        }
+        &.active .title{
+            color:white;
+        }
+        .icon-sh{
+            background-position:0 -172px;
+        }
+        &:hover .icon-sh,&.active .icon-sh{
+            background-position:-200px -172px !important;
+        } 
+        .icon-jy{
+            background-position:0 -210px;
+        } 
+        &:hover .icon-jy,&.active .icon-jy{
+            background-position:-200px -210px !important;
+        } 
+        .icon-zh{
+            background-position:0 -255px;
+        } 
+        &:hover .icon-zh,&.active .icon-zh{
+            background-position:-200px -255px !important;
+        } 
+        .icon-js{
+            background-position:0 -292px;
+        } 
+        &:hover .icon-js,&.active .icon-js{
+            background-position:-200px -292px !important;
+        } 
+        .icon-sg{
+            background-position:0 -334px;
+        } 
+        &:hover .icon-sg,&.active .icon-sg{
+            background-position:-200px -334px !important;
+        }  
+        .icon-zj{
+            background-position:0 -374px;
+        } 
+        &:hover .icon-zj,&.active .icon-zj{
+            background-position:-200px -374px !important;
+        } 
+        .icon-zz{
+            background-position:0px -412px;
+        } 
+        &:hover .icon-zz,&.active .icon-zz{
+            background-position:-200px -412px !important;
+        } 
+        .menu2{
+            font-size:13px;
+            line-height:50px;
+            padding-left:0 !important;
+        } 
+        .menu2-li{
+            position:relative;
+            list-style: none;
+            padding-left:90px;
+            & a{
+                color:#949bab;
+                text-decoration: none;
+                position:relative;
+            }
+            & a:before{
+                content: "";
+                position: absolute;
+                top: 9px;
+                z-index: 9999;
+                display: block;
+                width: 2px;
+                height: 2px;
+                font-size: 0;
+                left: -14px;
+                background-color:rgba(255,255,255,0.5);
+            }
+            &.active a{
+                color:white;
+            }
+            &.active a:before{
+                background-color:rgba(255,255,255,0.9);
+            }
+            &.active{
+                background-color:rgba(0,0,0,0.4);
+            }
+            &.active:before{
+                content:"";
+                width:4px;
+                height:50px;
+                position:absolute;
+                top:0;
+                left:0px;
+                background-color:#fdcd01;
+            }
+        } 
+        
+    } 
+}
+.rsjf-content-m{
+    & .navbar{
+        height:40px;
+        background-color:#ffffff;
+        border-radius: 2px;
+        line-height:40px;
+        font-size: 15px;
+        padding-left:20px;
+        margin-bottom: 10px;
+        & .back{
+            width:70px;
+            height:100%;
+            background-color:#f3f7fc;
+            float:right;
+            border-left:1px solid #dce2ea;
+            line-height: 40px;
+            font-size: 15px;
+            text-align: center;
+            @include user-select(none);
+            cursor: pointer;
+            & .icon-back{
+                display: inline-block;
+                width:15px;height:20px;
+                background-position:-370px -270px;
+            }
+            &:hover .icon-back{
+                display: inline-block;
+                width:15px;height:20px;
+                background-position:-370px -310px;
+                
+            }
+        }
+    }
+}
+.main-body{
+    background-color: #fff;
+    margin-top:15px;
+    @include clearfix;
+}

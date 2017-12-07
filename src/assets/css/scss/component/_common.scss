@@ -1,0 +1,18 @@
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right !important;
+}
+.text-left{
+  text-align: left !important;
+}
+.text-ellipsis{
+  @include text-overflow;
+}
+.clearfix{
+  @include clearfix;
+}
+.rsjf-hide{
+  display: none !important; 
+}

@@ -16,9 +16,10 @@
     "webpack",
     "es6"
   ],
-  "author": "brickspert",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
+    "mockjs": "^1.0.1-beta3",
     "axios-mock-adapter": "^1.7.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -47,7 +48,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "antd": "^2.13.9",
+    "antd": "^3.0.0",
     "axios": "^0.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

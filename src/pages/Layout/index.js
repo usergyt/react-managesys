@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Layout, Affix, Row, Col } from 'antd';
-import { Route, Redirect } from 'react-router-dom';
+ import { Route, Switch ,Redirect} from 'react-router-dom';
 
 import { childRoutes } from '@/router'
-
+import authHOC from '@/redux/utils/auth'
 import NavPath from '@/components/NavPath'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import Footer from '@/components/Footer'
 import {fetchProfile, logout} from '@/redux/actions/auth';
+import getRouter from 'router/index';
 
 import './index.less';
 
@@ -41,11 +42,18 @@ class App extends React.Component {
           <Content style={{ margin: '0 16px' }}>
             <NavPath data={navpath} />
             <div style={{ minHeight: 360 }}>
-              <Redirect to="/test" />
+              {/* <Redirect to="/" /> */}
+               
+              <Switch>
               {childRoutes.map((route, index) => (
-                <Route key={index} path={route.path} component={route.component} exactly={route.exactly} />
+                <Route 
+                key={index} 
+                path={route.path} 
+                component={(route.component)} 
+                exact={route.exact} />
               ))}
-            </div>
+              </Switch>
+             </div>
           </Content>
           <Footer />
         </Layout>

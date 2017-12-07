@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_MENU_SUCCESS:
         return Object.assign({}, initialState, {items: action.result.data});
         case UPDATE_NAVPATH:
-            return {
+             return {
                 ...state,
                 isLoading: false,
                 userInfo: {},

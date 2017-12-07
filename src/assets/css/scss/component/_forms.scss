@@ -1,0 +1,125 @@
+// prefix
+$inputPrefix: #{$cls-prefix}-input;
+$selectPrefix: #{$cls-prefix}-select;
+$labelPrefix: #{$cls-prefix}-label;
+$formPrefix: #{$cls-prefix}-form-group;
+
+// variable
+$form-height: 42px;
+$form-padding: 6px 12px;
+$form-font-size: 14px;
+$form-color: #555;
+$form-line-height: 1.42857143;
+$form-bgc: #fff;
+$form-border: 1px solid #dedede;
+$form-border-radius: 3px;
+$form-box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
+$form-transition: border-color ease-in .15s,
+box-shadow ease-out .15s;
+$form-width: 100%;
+$form-focus-border-color: #35baff;
+$form-focus-box-shadow: 0px 0px 1px $form-focus-border-color;
+$rsjf-primary: darken(#428bca, 6.5%) !default; // #337ab7
+$rsjf-success: #5cb85c !default;
+$rsjf-info: #5bc0de !default;
+$rsjf-warning: #f0ad4e !default;
+$rsjf-danger: #d9534f !default;
+$rsjf-disable: #ccc !default;
+
+
+
+
+// important
+.form-init {
+    box-sizing: border-box;
+    width: $form-width;
+    height: $form-height;
+    padding: $form-padding;
+    font-size: $form-font-size;
+    line-height: $form-line-height;
+    color: $form-color;
+    background-color: $form-bgc;
+    background-image: none;
+    border: $form-border;
+    border-radius: $form-border-radius;
+    transition: $form-transition;
+    outline: none;
+}
+@mixin form-focus($form-border-color, $form-fofux-box-shadow) {
+    border-color: $form-border-color;
+    box-shadow: $form-fofux-box-shadow;
+}
+.#{$formPrefix}{
+    @include clearfix;
+}
+// input
+.#{$inputPrefix} {
+    @extend .form-init;
+    &:focus {
+        @include form-focus($form-focus-border-color, $form-focus-box-shadow);
+    }
+    &-error {
+        border-color: $rsjf-danger;
+        &:focus {
+            @include form-focus($rsjf-danger, 1px 0px 1px $rsjf-danger);
+        }
+    }
+    &-warning {
+        border-color: $rsjf-warning;
+        &:focus {
+            @include form-focus($rsjf-warning, 1px 0px 1px $rsjf-warning);
+        }
+    }
+    &-disable {
+        border-color: $rsjf-disable;
+        background-color: #eee;
+        outline: none;
+        &:hover {
+            cursor: not-allowed;
+        }
+        &:focus {
+            outline: none;
+            @include form-focus($rsjf-disable, none);
+        }
+    }
+}
+// select
+.#{$selectPrefix} {
+    @extend .form-init;
+    outline: none;
+    &:focus {
+        @include form-focus($form-focus-border-color, $form-focus-box-shadow);
+    }
+}
+
+// label-input
+.#{$formPrefix} {
+    @at-root #{&}-horizontal {
+        > .#{$inputPrefix} {
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+        }
+    }
+}
+
+.#{$cls-prefix}-label{
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 14px;
+}
+
+// @media (min-width: 768px) {
+//     .#{$labelPrefix} {
+//         display: inline-block;
+//         max-width: 100%;
+//     }
+//     .#{$formPrefix} {
+//         > .#{$inputPrefix} {
+//             display: inline-block;
+//             width: auto;
+//             vertical-align: middle;
+//         }
+//     }
+// }
+

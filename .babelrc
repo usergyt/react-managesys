@@ -4,8 +4,18 @@
         "react",
         "stage-0"
     ],
+  
     "plugins": [
-        "react-hot-loader/babel",
-        "transform-runtime"
-    ]
+         "react-hot-loader/babel",
+         "transform-runtime",
+         [
+          "import",
+          [
+            {
+              "libraryName": "antd",
+              "style": "css"
+            }
+          ]
+        ]
+      ]
 }

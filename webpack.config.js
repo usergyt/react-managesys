@@ -11,11 +11,8 @@ const publicConfig = {
     devtool: 'cheap-module-source-map',
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: ["css-loader", "postcss-loader"]
-            })
+            test: /\.(less|css)$/,
+             use: ["style-loader", "css-loader", "postcss-loader"]
         }]
     },
     plugins: [
@@ -29,6 +26,9 @@ const publicConfig = {
         new ExtractTextPlugin({
             filename: '[name].[contenthash:5].css',
             allChunks: true
+        }),
+        new webpack.DefinePlugin({
+            MOCK: false
         })
     ]
 

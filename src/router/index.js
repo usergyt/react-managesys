@@ -5,11 +5,11 @@ import { Route, Switch } from 'react-router-dom';
 import Bundle from './Bundle';
 import Loading from 'components/Loading/Loading';
 
-// import Test from 'bundle-loader?lazy&name=userInfo!pages/Test/Test';
-import Test from '../pages/Test/Test';
-import Layout from '../pages/Layout';
-  
- import TableTest from '../pages/TableTest';
+import Test from 'bundle-loader?lazy&name=test!pages/Test/Test';
+
+import Layout from 'bundle-loader?lazy&name=layout!pages/Layout';
+import Login from 'bundle-loader?lazy&name=login!pages/Login';
+import UserManage from 'bundle-loader?lazy&name=userManage!pages/UserManage';
 const createComponent = (component) => () => (
     <Bundle load={component}>
         {
@@ -19,21 +19,33 @@ const createComponent = (component) => () => (
 );
 export const childRoutes = [
     {
-      'path':'/tabletest',
-      'component': TableTest
+        'path': '/',
+        'component': createComponent(UserManage),
+        exact: true,
     },
     {
-      'path':'/test',
-      'component': Test
-    }
-  ];
-  
+        'path': '/userManage',
+        'component': createComponent(UserManage)
+    },
+    {
+        'path': '/test',
+        'component': createComponent(Test)
+    },
+    {
+        'path': '/login',
+        'component': createComponent(Login)
+    },
+];
+
 export default () => (
-    <div>
-        <Switch>
+    <div className="content">
+         <Switch>
              {/* <Route path="/TableTest" component={TableTest} /> */}
-            <Route path="/" component={Layout} />
+             <Route path="/login" component={createComponent(Login)} />  
+             <Route path="/" component={createComponent(Layout)} />
             <Route path="/test" component={createComponent(Test)} />
-         </Switch>
-    </div>
+            <Route path="/userManage" component={createComponent(UserManage)} />
+
+            </Switch>
+     </div>
 );

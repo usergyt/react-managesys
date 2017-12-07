@@ -1,0 +1,91 @@
+.rsjf-icon-jibenxinxi{
+  background-position: 1px -1108px;
+    
+}
+.rsjf-icon-kaihuwancheng{
+    background-position: 1px -1358px;
+    
+}
+.rsjf-icon-kaihuwanchengSuccess{
+  background-position:-173px -1358px;
+}
+.rsjf-icon-zhanghuyanzheng{
+  background-position:1px -1233px;
+}
+.rsjf-icon-zhanghuyanzhengsuccess{
+  background-position:-173px -1233px;
+}
+.rsjf-icon-kaihuchenggong{
+  background-position:-173px -1357px;
+}
+.rsjf-steps-icon{
+  width: 102px;
+    height: 102px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+   
+}
+.rsjf-steps-box{
+  position: relative;
+  height: 130px;
+      margin: 0 auto;
+      @include clearfix;
+}
+.rsjf-steps-item{
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    background: #fff;
+     .active{
+    color:#35baff !important;
+  }
+}
+.rsjf-steps-icon-bg{
+     height: 102px;
+    width: 110px;
+  background-color: #fff;
+}
+.rsjf-steps-line{
+ height: 2px;
+    background-color: #35baff;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: 0;
+}
+.rsjf-steps-text{
+  color: #999;
+
+}
+
+.steps-box-xs {
+    padding: 35px 10px;
+    background-color: #fff;
+    @include clearfix;
+    .icon-one {
+        background-position: 1px -1108px;
+        width: 102px;
+        height: 102px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .icon-zhanghuyanzheng{
+            background-position: -173px -1233px;
+        width: 102px;
+        height: 102px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+      .icon-kaihuchenggong-xs{
+            background-position: -173px -1358px;
+        width: 102px;
+        height: 102px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .active {
+        color: #35a7ff;
+    }
+}

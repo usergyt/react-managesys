@@ -35,7 +35,7 @@ class NavPath extends React.Component {
   }
 }
 
-NavPath.propTypes = propTypes;
-NavPath.defaultProps = defaultProps;
+NavPath.propTypes = propTypes
+NavPath.defaultProps = defaultProps
 
 export default NavPath

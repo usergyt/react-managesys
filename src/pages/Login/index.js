@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Form, Input, Button, Row, Col, Icon, message } from 'antd'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import { login } from '@/redux/actions/auth'
 
 const FormItem = Form.Item
@@ -14,97 +14,97 @@ const propTypes = {
   user: PropTypes.object,
   loggingIn: PropTypes.bool,
   loginErrors: PropTypes.string
-};
+}
 
 class Login extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       loading: false,
-      name: "",
-      password: "",
-      code: "",
-      nameError: "",
-      passwordError: "",
-      validationMsg: "",
+      name: '',
+      password: '',
+      code: '',
+      nameError: '',
+      passwordError: '',
+      validationMsg: '',
       closeEye: true
     }
   }
   componentWillReceiveProps(nextProps) {
-     const { user ,loginErrors} = nextProps;
-    const { router } = this.props;
+    const { user, loginErrors } = nextProps
+    const { router } = this.props
     if (user) {   // 判断是否登陆
-        localStorage.setItem('user', JSON.stringify(user));
-        this.props.history.replace('/home');
-     }
-     if(loginErrors){
-      message.error(loginErrors);
-      
-     }
-   }
+      localStorage.setItem('user', JSON.stringify(user))
+      this.props.history.replace('/home')
+    }
+    if (loginErrors) {
+      message.error(loginErrors)
+
+    }
+  }
   handleName = (e) => {
-    let value = e.target.value;
-    let error = "";
+    let value = e.target.value
+    let error = ''
     if (value.length < 10) {
-      error = "请输入正确的账号！";
+      error = '请输入正确的账号！'
     }
     this.setState({
       name: value,
       nameError: error,
       validationMsg: error
-    });
+    })
   }
   handlePassword = (e) => {
-    let value = e.target.value;
-    let error = "";
+    let value = e.target.value
+    let error = ''
     if (value.length < 10) {
-      error = "请输入正确的密码！";
+      error = '请输入正确的密码！'
     }
     this.setState({
       password: value,
       passwordError: error,
       validationMsg: error
-    });
+    })
   }
   handleCode = (e) => {
-    let value = e.target.value;
-    let error = "";
+    let value = e.target.value
+    let error = ''
     if (value.length < 4) {
-      error = "请输入正确的验证码！";
+      error = '请输入正确的验证码！'
     }
     this.setState({
       code: value,
       codeError: error,
       validationMsg: error
 
-    });
+    })
   }
   clearName = () => {
     this.setState({
-      name: "",
-    });
+      name: ''
+    })
   }
   isCloseEye = () => {
     let isEye = this.state.closeEye
     this.setState({
       closeEye: !isEye
-    });
+    })
   }
   loginSubmit = (e) => {
     this.setState({
       loading: true
-    });
+    })
     this.props.login(this.state.name, this.state.password)
-      
+
   }
 
   toRegister() {
-    this.props.history.replace('/register');
+    this.props.history.replace('/register')
   }
 
   render() {
-     return (
+    return (
       <div className="login-wapper">
         <div className="login-header">
           <img src={require('../../assets/images/applogo.png')} />
@@ -152,7 +152,7 @@ class Login extends React.Component {
 
             <div className="login-button-container">
               <button className="rsjf-btn rsjf-btn-primary rsjf-btn-lg  col-lg-12 col-md-12 col-sm-12 col-xs-12" disabled={this.state.loading} onClick={this.loginSubmit}>
-                {this.state.loading ? "登陆中..." : "登陆"}
+                {this.state.loading ? '登陆中...' : '登陆'}
               </button>
             </div>
             <div className="text-right login-link">
@@ -174,12 +174,12 @@ class Login extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { auth } = state;
+  const { auth } = state
   if (auth.user) {
-    return { user: auth.user, loggingIn: auth.loggingIn, loginErrors: '' };
+    return { user: auth.user, loggingIn: auth.loggingIn, loginErrors: '' }
   }
 
-  return { user: null, loggingIn: auth.loggingIn, loginErrors: auth.loginErrors };
+  return { user: null, loggingIn: auth.loggingIn, loginErrors: auth.loginErrors }
 }
 
 function mapDispatchToProps(dispatch) {

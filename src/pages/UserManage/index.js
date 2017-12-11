@@ -2,7 +2,7 @@ import React from 'react'
 import { getUserInfo } from '@/redux/actions/userInfo'
 import UserList from './userList'
 import UserSearchInfoPageForm from './searchInfo'
-require("./index.css")
+require('./index.css')
 
  
 /**
@@ -34,7 +34,7 @@ export default class UserInfoPage extends React.Component {
           <UserList />
         </div>
       </div>
-    );
+    )
   }
 }
 

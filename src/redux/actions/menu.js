@@ -1,8 +1,8 @@
 import api from '../api'
 
-export const GET_ALL_MENU = 'GET_ALL_MENU';
-export const GET_ALL_MENU_SUCCESS = 'GET_ALL_MENU_SUCCESS';
-export const UPDATE_NAVPATH = 'UPDATE_NAVPATH';
+export const GET_ALL_MENU = 'GET_ALL_MENU'
+export const GET_ALL_MENU_SUCCESS = 'GET_ALL_MENU_SUCCESS'
+export const UPDATE_NAVPATH = 'UPDATE_NAVPATH'
 
 export function updateNavPath(path, key) {
   return {
@@ -15,8 +15,8 @@ export function updateNavPath(path, key) {
 }
 
 export function getAllMenu() {
-     return {
+  return {
     types: [GET_ALL_MENU, GET_ALL_MENU_SUCCESS, UPDATE_NAVPATH],
-    promise: client =>api.get('/menu')
+    promise: client => api.get('/menu')
   }
 }

@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 
 import './index.less'
 
-const { Footer } = Layout;
+const { Footer } = Layout
 
 export default class commonFooter extends React.Component {
   constructor() {

@@ -21,11 +21,20 @@ const devConfig = {
         rules: [{
             test: /\.(less|css)$/,
             use: ["style-loader", "css-loader", "postcss-loader"]
-        }]
+        },
+        {
+            enforce: 'pre',
+            test: /\.js$/,
+            exclude: /node_modules/,
+            options: {
+              configFile: path.resolve(__dirname, '.eslintrc'),
+            },
+            loader: 'eslint-loader'
+          }]
     },
     plugins: [
         new webpack.DefinePlugin({
-            MOCK: false 
+            MOCK: false
         })
     ],
     devServer: {

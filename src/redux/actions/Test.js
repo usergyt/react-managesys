@@ -1,16 +1,15 @@
-export const JIA = "JIA";
-export const JIAN = "JIAN";
-export const CHONGZHI = "CHONGZHI";
+export const JIA = ''
+export const JIAN = ''
+export const CHONGZHI = 'CHONGZHI'
 
 export function jia() {
-    console.log("*******")
-    return {type: JIA}
+  return { type: JIA }
 }
 
 export function jian() {
-    return {type: JIAN}
+  return { type: JIAN }
 }
 
 export function chongzhi() {
-    return {type: CHONGZHI}
+  return { type: CHONGZHI }
 }

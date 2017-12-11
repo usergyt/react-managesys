@@ -4,7 +4,7 @@ import { Layout, Row, Col, Icon, Badge, Menu, Dropdown, Avatar, Popover } from '
 import './index.less'
 import { Link, withRouter } from 'react-router-dom'
 
-const { Header } = Layout;
+const { Header } = Layout
 
 class commonHeader extends React.Component {
   constructor () {
@@ -14,13 +14,13 @@ class commonHeader extends React.Component {
   handleLogOut = () => {
     const {logout} = this.props
     logout().payload.promise.then(() => {
-      this.props.history.replace('/login');
-    });
+      this.props.history.replace('/login')
+    })
   }
 
   render () {
     const {profile} = this.props
-    let username = '';
+    let username = ''
     const menu = (
       <Menu>
         <Menu.Item>
@@ -33,7 +33,7 @@ class commonHeader extends React.Component {
           <a onClick={this.handleLogOut}>注销</a>
         </Menu.Item>
       </Menu>
-    );
+    )
 
     const content = (
       <div>
@@ -43,7 +43,7 @@ class commonHeader extends React.Component {
         <p>Content</p>
         <p>Content</p>
       </div>
-    );
+    )
 
     return (
       <Header style={{ background: '#fff', padding: 0 }}>

@@ -1,8 +1,9 @@
-import Mock from 'mockjs';
+import Mock from 'mockjs'
 
-let Random = Mock.Random;
+let Random = Mock.Random
 
-Mock.mock('/operation-platform/accountInfo', {"accountInfos|1-10":[{
+Mock.mock('/operation-platform/accountInfo', {
+  'accountInfos|1-10': [{
     'accountCode|1-100': 3,
     'accountName': '@cname',
     'email': '@email',
@@ -11,6 +12,6 @@ Mock.mock('/operation-platform/accountInfo', {"accountInfos|1-10":[{
     'accountPw|3.2-5': 52,
     'statusId|2-4': 'alice-',
     'accountQuestion|2-4': 'alice-'
-}]});
+  }]
+})
 
- 

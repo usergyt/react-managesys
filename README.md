@@ -1,6 +1,6 @@
-前端react框架
- 代码规范
-基本规则
+#前端react框架
+ ##代码规范
+###基本规则
  每个文件只包含一个 React 组件
 使用 JSX 语法
 除非是从一个非 JSX 文件中初始化 app，否则不要使用 React.createElement
